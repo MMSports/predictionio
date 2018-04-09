@@ -26,12 +26,11 @@ elasticsearchVersion := (if (majorVersion(elasticsearchVersion.value) < 5) "5.5.
 libraryDependencies ++= Seq(
   "org.apache.predictionio" %% "apache-predictionio-core" % version.value % "provided",
     "org.apache.spark"        %% "spark-core"               % sparkVersion.value % "provided",
-  "org.elasticsearch" % "elasticsearch-hadoop" % "6.2.4-MM",
   "org.apache.spark"        %% "spark-core"               % sparkVersion.value % "provided",
   "org.elasticsearch.client" % "elasticsearch-rest-client"                     % elasticsearchVersion.value,
-  "org.elasticsearch"       %% elasticsearchSparkArtifact.value % elasticsearchVersion.value
+  "org.elasticsearch"       %% elasticsearchSparkArtifact.value % "6.2.4-MM"
     exclude("org.apache.spark", "*"),
-  "org.elasticsearch"        % "elasticsearch-hadoop-mr"  % elasticsearchVersion.value,
+  "org.elasticsearch"        % "elasticsearch-hadoop-mr"  % "6.2.4-MM",
   "org.specs2"              %% "specs2"                   % "2.3.13" % "test")
 resolvers += "Local Repository" at "file:///.custom-scala-m2/repo"
 parallelExecution in Test := false
